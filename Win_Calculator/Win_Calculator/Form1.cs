@@ -17,10 +17,11 @@ namespace Win_Calculator
             InitializeComponent();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
             Result.Text = Result.Text + b.Text;
         }
+
     }
 }
