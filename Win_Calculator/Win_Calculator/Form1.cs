@@ -19,9 +19,21 @@ namespace Win_Calculator
 
         private void button_Click(object sender, EventArgs e)
         {
+            if (result.Text == "0")
+               result.Clear();
+
             Button b = (Button)sender;
-            Result.Text = Result.Text + b.Text;
+            result.Text = result.Text + b.Text;
         }
 
+        private void button19_Click(object sender, EventArgs e)
+        {
+            result.Text = "0";
+        }
+
+        private void operator_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
