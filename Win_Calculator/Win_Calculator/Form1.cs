@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace Win_Calculator
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
         Double value = 0;
         String operation = "";
         bool operation_pressed = false;
 
-        public Form1()
+        public Calculator()
         {
             InitializeComponent();
         }
 
+        //Button click function
         private void button_Click(object sender, EventArgs e)
         {
             if ((result.Text == "0") || (operation_pressed))
@@ -29,8 +30,8 @@ namespace Win_Calculator
             Button b = (Button)sender;
             result.Text = result.Text + b.Text;
         }
-
-        private void button19_Click(object sender, EventArgs e)
+        //Clear result funtion
+        private void clearEverything(object sender, EventArgs e)
         {
             result.Text = "0";
         }
@@ -43,24 +44,26 @@ namespace Win_Calculator
             operation_pressed = true;
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void equal_Click (object sender, EventArgs e)
         {
             switch (operation)
             {
+                case "-":
+                    result.Text = (value - Double.Parse(result.Text)).ToString();
+                    break;
+
                 case "+":
                     result.Text = (value + Double.Parse(result.Text)).ToString();
                     break;
-                case "-":
-                    result.Text = (value + Double.Parse(result.Text)).ToString();
-                    break;
+
                 case "*":
-                    result.Text = (value + Double.Parse(result.Text)).ToString();
+                    result.Text = (value * Double.Parse(result.Text)).ToString();
                     break;
+
                 case "/":
-                    result.Text = (value + Double.Parse(result.Text)).ToString();
+                    result.Text = (value / Double.Parse(result.Text)).ToString();
                     break;
-                default:
-                    break;
+              
             }//end of switch
             operation_pressed = false;
         }
@@ -71,6 +74,8 @@ namespace Win_Calculator
             value = 0;
             
         }
+
+        
     }
 }
      
